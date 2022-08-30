@@ -29,7 +29,7 @@ const thorus = new THREE.Mesh(geometry, material);
 scene.add(thorus);
 
 const pointLight = new THREE.PointLight(0xffffff);
-pointLight.position.set(20, 20, 20);
+pointLight.position.set(5, 5, 5);
 
 const ambientLight = new THREE.AmbientLight(0xf5f5f5);
 

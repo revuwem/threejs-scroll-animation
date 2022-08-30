@@ -25,11 +25,11 @@ renderer.render(scene, camera);
 
 // Torus
 
-const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
-const material = new THREE.MeshStandardMaterial({
+const torusGeometry = new THREE.TorusGeometry(10, 3, 16, 100);
+const torusMaterial = new THREE.MeshStandardMaterial({
   color: 0xff6376,
 });
-const thorus = new THREE.Mesh(geometry, material);
+const thorus = new THREE.Mesh(torusGeometry, torusMaterial);
 
 scene.add(thorus);
 
@@ -78,6 +78,7 @@ scene.background = spaceTexture;
 
 const moonTexture = new THREE.TextureLoader().load("moon.jpeg");
 const normalTexture = new THREE.TextureLoader().load("normal.jpeg");
+
 const moon = new THREE.Mesh(
   new THREE.SphereGeometry(3, 32, 32),
   new THREE.MeshStandardMaterial({

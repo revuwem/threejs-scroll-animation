@@ -3,6 +3,8 @@ import "./style.css";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
+// Setup
+
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(
   75,
@@ -21,6 +23,8 @@ camera.position.setZ(30);
 
 renderer.render(scene, camera);
 
+// Torus
+
 const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
 const material = new THREE.MeshStandardMaterial({
   color: 0xff6376,
@@ -29,6 +33,8 @@ const thorus = new THREE.Mesh(geometry, material);
 
 scene.add(thorus);
 
+// Light
+
 const pointLight = new THREE.PointLight(0xffffff);
 pointLight.position.set(5, 5, 5);
 
@@ -36,11 +42,15 @@ const ambientLight = new THREE.AmbientLight(0xf5f5f5);
 
 scene.add(pointLight, ambientLight);
 
-const pointLightHelper = new THREE.PointLightHelper(pointLight);
-const gridHelper = new THREE.GridHelper(100, 20);
-scene.add(pointLightHelper, gridHelper);
+// Helpers
 
-const controls = new OrbitControls(camera, renderer.domElement);
+// const pointLightHelper = new THREE.PointLightHelper(pointLight);
+// const gridHelper = new THREE.GridHelper(100, 20);
+// scene.add(pointLightHelper, gridHelper);
+
+// const controls = new OrbitControls(camera, renderer.domElement);
+
+// Stars
 
 function addStar() {
   const geometry = new THREE.SphereGeometry(0.25, 24, 24);
@@ -59,8 +69,12 @@ function addStar() {
 // fill scene with random positioned stars
 Array(200).fill().forEach(addStar);
 
+// Background
+
 const spaceTexture = new THREE.TextureLoader().load("space.jpeg");
 scene.background = spaceTexture;
+
+// Moon
 
 const moonTexture = new THREE.TextureLoader().load("moon.jpeg");
 const normalTexture = new THREE.TextureLoader().load("normal.jpeg");
@@ -100,7 +114,7 @@ function animate() {
   thorus.rotation.y += 0.005;
   thorus.rotation.z += 0.01;
 
-  controls.update();
+  // controls.update();
 
   renderer.render(scene, camera);
 }

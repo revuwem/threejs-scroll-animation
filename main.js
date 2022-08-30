@@ -59,6 +59,9 @@ function addStar() {
 // fill scene with random positioned stars
 Array(200).fill().forEach(addStar);
 
+const spaceTexture = new THREE.TextureLoader().load("space.jpeg");
+scene.background = spaceTexture;
+
 function animate() {
   requestAnimationFrame(animate);
 

@@ -23,6 +23,8 @@ camera.position.setZ(30);
 
 renderer.render(scene, camera);
 
+const textureLoader = new THREE.TextureLoader();
+
 // Torus
 
 const torusGeometry = new THREE.TorusGeometry(10, 3, 16, 100);
@@ -71,13 +73,13 @@ Array(200).fill().forEach(addStar);
 
 // Background
 
-const spaceTexture = new THREE.TextureLoader().load("space.jpeg");
+const spaceTexture = textureLoader.load("space.jpeg");
 scene.background = spaceTexture;
 
 // Moon
 
-const moonTexture = new THREE.TextureLoader().load("moon.jpeg");
-const normalTexture = new THREE.TextureLoader().load("normal.jpeg");
+const moonTexture = textureLoader.load("moon.jpeg");
+const normalTexture = textureLoader.load("normal.jpeg");
 
 const moon = new THREE.Mesh(
   new THREE.SphereGeometry(3, 32, 32),

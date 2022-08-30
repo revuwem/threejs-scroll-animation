@@ -62,6 +62,23 @@ Array(200).fill().forEach(addStar);
 const spaceTexture = new THREE.TextureLoader().load("space.jpeg");
 scene.background = spaceTexture;
 
+const moonTexture = new THREE.TextureLoader().load("moon.jpeg");
+const normalTexture = new THREE.TextureLoader().load("normal.jpeg");
+const moon = new THREE.Mesh(
+  new THREE.SphereGeometry(3, 32, 32),
+  new THREE.MeshStandardMaterial({
+    map: moonTexture,
+    normalMap: normalTexture,
+  })
+);
+
+// to set position of geometry it is possible to use
+// either assignment or setter
+moon.position.z = 30;
+moon.position.setX(-10);
+
+scene.add(moon);
+
 function animate() {
   requestAnimationFrame(animate);
 

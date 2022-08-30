@@ -52,11 +52,11 @@ scene.add(pointLight, ambientLight);
 
 // Stars
 
-function addStar() {
-  const geometry = new THREE.SphereGeometry(0.25, 24, 24);
-  const material = new THREE.MeshStandardMaterial({ color: 0xffffff });
-  const star = new THREE.Mesh(geometry, material);
+const starGeometry = new THREE.SphereGeometry(0.25, 24, 24);
+const starMaterial = new THREE.MeshStandardMaterial({ color: 0xffffff });
 
+function addStar() {
+  const star = new THREE.Mesh(starGeometry, starMaterial);
   // generate random position coords
   const [x, y, z] = Array(3)
     .fill()

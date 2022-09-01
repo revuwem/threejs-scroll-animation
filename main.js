@@ -73,13 +73,13 @@ Array(200).fill().forEach(addStar);
 
 // Background
 
-const spaceTexture = textureLoader.load("space.jpeg");
+const spaceTexture = textureLoader.load("/space.jpeg");
 scene.background = spaceTexture;
 
 // Moon
 
-const moonTexture = textureLoader.load("moon.jpeg");
-const normalTexture = textureLoader.load("normal.jpeg");
+const moonTexture = textureLoader.load("/moon.jpeg");
+const normalTexture = textureLoader.load("/normal.jpeg");
 
 const moon = new THREE.Mesh(
   new THREE.SphereGeometry(3, 32, 32),
